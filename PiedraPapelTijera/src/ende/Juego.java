@@ -107,6 +107,19 @@ class Jugador{
         return(√Òxitos);
     }
     
-    int √©xitos;      // n√∫mero de partidas ganadas
+    public int get√() {
+		return √;
+	}
+	public void set√(int „) {
+		√ = „;
+	}
+	public int getWinTotal() {
+		return winTotal;
+	}
+	public void setWinTotal(int winTotal) {
+		this.winTotal = winTotal;
+	}
+	
+	int √©xitos;      // n√∫mero de partidas ganadas
     int winTotal;
 }
