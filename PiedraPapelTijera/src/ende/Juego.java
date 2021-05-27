@@ -9,51 +9,61 @@ public class Juego
 {
     public static void main(String args[])
     {
-        Jugador p1=new Jugador();
-        Jugador p2=new Jugador();
-        boolean fin_de_juego=false;  
-        Integer Rondasjugadas = 0;    // Número de rondas jugadas
-        Integer EXITOS_jugador1=p1.exitos;
-        Integer EXITOS_jugador2=p2.exitos;
-        Integer EmPaTeS = 0;
-        String opcion_JUGADOR1, opcion_JUGADOR2;
+    	//Atributos
+    	//Constantes
+    	//Variables
+    	Jugador p1 =new Jugador();
+        Jugador p2 =new Jugador();
         
-        // Bucle de juego
+        boolean fin_de_juego = false;
+        //Número de rondas jugadas
+        Integer Rondasjugadas = 0;
+        
+        Integer exitosJugador1 = p1.exitos;
+        Integer exitosJugador2 = p2.exitos;
+        Integer empates = 0;
+        String opcionJugador1; 
+        String opcionJugador2;
+        
+        // Bucle del juego
         do
         {
             System.out.println("***** Ronda: " + Rondasjugadas+" *********************\n");
-            System.out.println("Numero de empates: "+ EmPaTeS + "\n");
-            opcion_JUGADOR1=p1.opcion_al_azar();
-            System.out.println("Jugador 1: " + opcion_JUGADOR1+"\t Jugador 1 - Partidas ganadas: " + EXITOS_jugador1);
-            opcion_JUGADOR2 = p2.opcion_al_azar();
-            System.out.println("Jugador 2: " + opcion_JUGADOR2+"\t Jugador 2 - Partidas ganadas: " + EXITOS_jugador2);
-            if((opcion_JUGADOR1.equals("piedra"))&&(opcion_JUGADOR2.equals("papel")))
+            System.out.println("Numero de empates: "+ empates + "\n");
+            
+            opcionJugador1 = p1.opcion_al_azar();
+            
+            System.out.println("Jugador 1: " + opcionJugador1 + "\t Jugador 1 - Partidas ganadas: " + exitosJugador1);
+            opcionJugador2 = p2.opcion_al_azar();
+            System.out.println("Jugador 2: " + opcionJugador2 + "\t Jugador 2 - Partidas ganadas: " + exitosJugador2);
+            
+            if((opcionJugador1.equals("piedra")) && (opcionJugador2.equals("papel")))
             {
                 System.out.println("Jugador 2 GANA");
-                EXITOS_jugador2 = ++p2.exitos;
+                exitosJugador2 = p2.exitos ++;
                 
             }
-            else if((opcion_JUGADOR1.equals("papel"))&&(opcion_JUGADOR2.equals("piedra")))
+            if((opcion_JUGADOR1.equals("papel"))&&(opcion_JUGADOR2.equals("piedra")))
             {
             	EXITOS_jugador1 = ++p1.exitos;
                 System.out.println("Jugador 1 GANA");
             }
-            else if((opcion_JUGADOR1.equals("piedra"))&&(opcion_JUGADOR2.equals("tijeras")))
+            if((opcion_JUGADOR1.equals("piedra"))&&(opcion_JUGADOR2.equals("tijeras")))
             {
             	EXITOS_jugador1 = ++p1.exitos;
                 System.out.println("Jugador 1 GANA");
             }
-            else if((opcion_JUGADOR1.equals("tijeras"))&&(opcion_JUGADOR2.equals("piedra")))
+            if((opcion_JUGADOR1.equals("tijeras"))&&(opcion_JUGADOR2.equals("piedra")))
             {
             	EXITOS_jugador2 = ++p2.exitos;
                 System.out.println("Jugador 2 GANA");
             }
-            else if((opcion_JUGADOR1.equals("tijeras"))&&(opcion_JUGADOR2.equals("papel")))
+            if((opcion_JUGADOR1.equals("tijeras"))&&(opcion_JUGADOR2.equals("papel")))
             {
             	EXITOS_jugador1 = ++p1.exitos;
                 System.out.println("Jugador 1 GANA");
             }
-            else if((opcion_JUGADOR1.equals("papel"))&&(opcion_JUGADOR2.equals("tijeras")))
+            if((opcion_JUGADOR1.equals("papel"))&&(opcion_JUGADOR2.equals("tijeras")))
             {
             	EXITOS_jugador2 = ++p2.exitos;
                 System.out.println("Jugador 2 GANA");
@@ -81,6 +91,7 @@ class Jugador{
     /**
      * Escoge piedra, papel o tijera al azar
      */
+	
     public String opcion_al_azar()
     {
         String opcion="";
@@ -97,23 +108,6 @@ class Jugador{
         }
         return opcion;
     }
-
-    
-	
-	public int getExitos() {
-		return exitos;
-	}
-	public void setExitos(int exitos) {
-		this.exitos = exitos;
-	}
-	public int getWinTotal() {
-		return winTotal;
-	}
-	public void setWinTotal(int winTotal) {
-		this.winTotal = winTotal;
-	}
-
-
 
 	int exitos;      // número de partidas ganadas
     int winTotal;
